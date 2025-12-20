@@ -216,8 +216,17 @@ class PracticeApp {
             this.elements.optionsContainer.appendChild(optionDiv);
             
             if (!isAnswered) {
+                // 點擊 input 時選中
                 input.addEventListener('change', () => {
                     this.selectedOption = parseInt(input.value);
+                });
+                
+                // 點擊整個選項方框時也選中
+                optionDiv.addEventListener('click', (e) => {
+                    if (e.target !== input) {
+                        input.checked = true;
+                        this.selectedOption = parseInt(input.value);
+                    }
                 });
             }
         });
@@ -273,36 +282,18 @@ class PracticeApp {
 
     // 顯示結果
     showResult(question) {
+        // 結果卡片已移除，只顯示詳細解說
         const record = StorageManager.getRecord(question.id);
         this.elements.resultSection.style.display = 'block';
-        this.elements.resultCard.classList.remove('correct', 'incorrect');
-
-        if (record && record.isCorrect) {
-            this.elements.resultCard.classList.add('correct');
-            this.elements.resultText.textContent = '✓ 恭喜！答案正確';
-            this.elements.resultText.style.color = '#10b981';
-        } else {
-            this.elements.resultCard.classList.add('incorrect');
-            this.elements.resultText.textContent = '✗ 答案錯誤';
-            this.elements.resultText.style.color = '#ef4444';
-        }
-
-        this.elements.userAnswerDisplay.textContent = record ? question.options[record.selectedOption] : '尚未作答';
-        this.elements.correctAnswerDisplay.textContent = question.options[question.correctAnswer];
         this.elements.explanationText.textContent = question.explanation;
+        this.elements.explanationContent.style.display = 'block';
+        this.elements.explanationToggle.classList.add('active');
     }
 
     // 顯示詳解（不需作答）
     showExplanation() {
         const question = this.displayedQuestions[this.currentQuestionIndex];
         this.elements.resultSection.style.display = 'block';
-        this.elements.resultCard.classList.remove('correct', 'incorrect');
-        this.elements.resultText.textContent = '詳解';
-        this.elements.resultText.style.color = '#374151';
-
-        const record = StorageManager.getRecord(question.id);
-        this.elements.userAnswerDisplay.textContent = record ? question.options[record.selectedOption] : '尚未作答';
-        this.elements.correctAnswerDisplay.textContent = question.options[question.correctAnswer];
         this.elements.explanationText.textContent = question.explanation;
         this.elements.explanationContent.style.display = 'block';
         this.elements.explanationToggle.classList.add('active');

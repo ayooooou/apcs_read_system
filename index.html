@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C 程式識讀練習系統</title>
+    <link rel="icon" href="data/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +12,10 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <h1>📚 前端練習系統</h1>
+                <div class="header-title">
+                    <h1>APCS程式識讀練習系統</h1>
+                    <p class="header-source">題目來源:APCS C 程式識讀 125 題｜吳邦一</p>
+                </div>
                 <div class="progress-stats">
                     <div class="stat-item">
                         <span class="stat-label">進度</span>
@@ -43,16 +47,18 @@
 
             <!-- Center: Main Content -->
             <section class="practice-area">
-                <!-- Question Navigation -->
-                <div class="navigation-bar">
-                    <button id="prevBtn" class="nav-btn">← 上一題</button>
-                    <div class="current-question">
-                        <span>第 <span id="currentQNum">1</span> / <span id="totalQNum">0</span> 題</span>
+                <!-- Top Navigation -->
+                <div class="bottom-nav">
+                    <div class="navigation-bar">
+                        <button id="prevBtn" class="nav-btn">前一題</button>
+                        <div class="current-question">第 <span id="currentQNum">1</span> / <span id="totalQNum">0</span> 題</div>
+                        <div class="question-selector">
+                            <label for="questionSelect" class="selector-label"></label>
+                            <select id="questionSelect" class="question-select"></select>
+                        </div>
+                        <button id="nextBtn" class="nav-btn">下一題</button>
                     </div>
-                    <select id="questionSelect" class="question-select"></select>
-                    <button id="nextBtn" class="nav-btn">下一題 →</button>
                 </div>
-
                 <!-- Question Content -->
                 <div class="question-card">
                     <div class="question-header">
@@ -76,16 +82,6 @@
 
                 <!-- Result & Explanation -->
                 <div id="resultSection" class="result-section" style="display:none;">
-                    <div id="resultCard" class="result-card">
-                        <div class="result-header">
-                            <span id="resultText"></span>
-                        </div>
-                        <div class="result-details">
-                            <p><strong>你的答案：</strong> <span id="userAnswerDisplay"></span></p>
-                            <p><strong>正確答案：</strong> <span id="correctAnswerDisplay"></span></p>
-                        </div>
-                    </div>
-
                     <!-- Explanation -->
                     <div class="explanation-card">
                         <button class="accordion-btn" id="explanationToggle">
@@ -97,12 +93,22 @@
                         </div>
                     </div>
                 </div>
+
+                
             </section>
         </main>
+    </div>
 
-        <!-- Footer -->
-        <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
             <p>💡 提示：你的答題進度會自動保存到本機</p>
+        </div>
+        <div class="footer-right">
+            <p>題目來源: APCS C 程式識讀 125 題 | 吳邦一</p>
+            <p>系統製作| 郭: <a href="https://ayooooou.github.io/" target="_blank">link</a></p>
+        </div>
+    </footer>
         </footer>
     </div>
 
