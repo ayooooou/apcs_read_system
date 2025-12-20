@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C 程式識讀練習系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 前端練習系統</h1>
+                <div class="progress-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">進度</span>
+                        <span class="stat-value"><span id="completed">0</span> / <span id="total">0</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">正確率</span>
+                        <span class="stat-value"><span id="correctRate">0</span>%</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Left Sidebar: Question List -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3>題目列表</h3>
+                    <div class="sidebar-buttons">
+                        <button id="mistakeReviewBtn" class="review-btn" title="只顯示答錯的題目">❌ 錯題</button>
+                        <button id="resetBtn" class="reset-btn" title="重置所有進度">🔄</button>
+                    </div>
+                </div>
+                <div class="mistake-info" id="mistakeInfo" style="display:none;">
+                    <p>錯題復習模式 (<span id="mistakeCount">0</span> 題)</p>
+                </div>
+                <div class="question-list" id="questionList"></div>
+            </aside>
+
+            <!-- Center: Main Content -->
+            <section class="practice-area">
+                <!-- Question Navigation -->
+                <div class="navigation-bar">
+                    <button id="prevBtn" class="nav-btn">← 上一題</button>
+                    <div class="current-question">
+                        <span>第 <span id="currentQNum">1</span> / <span id="totalQNum">0</span> 題</span>
+                    </div>
+                    <select id="questionSelect" class="question-select"></select>
+                    <button id="nextBtn" class="nav-btn">下一題 →</button>
+                </div>
+
+                <!-- Question Content -->
+                <div class="question-card">
+                    <div class="question-header">
+                        <h2 id="questionTitle"></h2>
+                    </div>
+
+                    <div class="question-content">
+                        <p id="questionText" class="question-text"></p>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="options-container" id="optionsContainer"></div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="submitBtn" class="btn btn-primary">送出答案</button>
+                        <button id="retryBtn" class="btn btn-secondary" style="display:none;">重新作答</button>
+                        <button id="showExplanationBtn" class="btn btn-tertiary">看詳解</button>
+                    </div>
+                </div>
+
+                <!-- Result & Explanation -->
+                <div id="resultSection" class="result-section" style="display:none;">
+                    <div id="resultCard" class="result-card">
+                        <div class="result-header">
+                            <span id="resultText"></span>
+                        </div>
+                        <div class="result-details">
+                            <p><strong>你的答案：</strong> <span id="userAnswerDisplay"></span></p>
+                            <p><strong>正確答案：</strong> <span id="correctAnswerDisplay"></span></p>
+                        </div>
+                    </div>
+
+                    <!-- Explanation -->
+                    <div class="explanation-card">
+                        <button class="accordion-btn" id="explanationToggle">
+                            <span class="accordion-icon">▶</span>
+                            詳細解說
+                        </button>
+                        <div class="accordion-content" id="explanationContent" style="display:none;">
+                            <p id="explanationText"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>💡 提示：你的答題進度會自動保存到本機</p>
+        </footer>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
