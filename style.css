@@ -30,6 +30,32 @@ body {
     letter-spacing: 0.01em;
 }
 
+/* Global anchor styling with a subtle accent underline */
+a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    background-image: linear-gradient(120deg, rgba(29, 78, 216, 0.16) 0%, rgba(29, 78, 216, 0.16) 100%);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: 0 100%;
+    transition: color 0.2s ease, background-size 0.25s ease;
+}
+
+a:hover,
+a:focus-visible {
+    color: #1238b0;
+    background-size: 100% 100%;
+}
+
+a:focus-visible {
+    outline: 2px solid #c7d2fe;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 /* ==================== Container ==================== */
 .container {
     display: flex;
