@@ -106,8 +106,13 @@ a:focus-visible {
 
 .progress-stats {
     display: flex;
-    gap: 18px;
+    gap: 18px;    align-items: center;
 }
+
+.header-buttons {
+    display: flex;
+    gap: 8px;
+    margin-left: 10px;}
 
 .stat-item {
     display: flex;
@@ -138,13 +143,14 @@ a:focus-visible {
 }
 
 /* ==================== Sidebar ==================== */
-.sidebar { display: none; }
+.sidebar {
+    display: none;
+}
 
 .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
     padding-bottom: 15px;
     border-bottom: 2px solid var(--border-color);
 }
@@ -203,13 +209,40 @@ a:focus-visible {
 }
 
 .mistake-info {
-    background-color: rgba(239, 68, 68, 0.1);
-    border-left: 3px solid var(--danger-color);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(239, 68, 68, 0.05) 100%);
+    border-left: 4px solid var(--danger-color);
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    border-radius: 6px;
     font-size: 14px;
     color: var(--danger-color);
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+    animation: slideIn 0.3s ease-out;
+    width: 100%;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mistake-info p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mistake-info p::before {
+    content: '📋';
+    font-size: 16px;
 }
 
 .question-item {
@@ -264,7 +297,9 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    min-width: 0;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* Navigation Bar */
@@ -277,7 +312,17 @@ a:focus-visible {
     padding: 12px 16px;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    width: fit-content;
+    min-width: fit-content;
+}
+
+.nav-buttons-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #fff;
+    padding: 12px 16px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
 .nav-btn {
@@ -336,10 +381,11 @@ a:focus-visible {
     margin: 12px 0 0;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* 靠左對齊 */
+    justify-content: space-between;
     gap: 14px;
     flex-wrap: wrap;
-    width: 100%; /* 讓容器吃滿寬，避免被父層置中 */
+    width: 100%;
+}
 }
 
 /* Question Card */

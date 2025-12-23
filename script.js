@@ -62,6 +62,8 @@ class PracticeApp {
         this.currentQuestionIndex = 0;
         this.selectedOption = undefined;
         this.mistakeReviewMode = false;
+        this.skipResetOnLoad = false; // 避免在提交後立刻清除紀錄
+        this.mistakeSnapshot = null; // 錯題模式的題目快照
         this.displayedQuestions = this.questions;
         this.initializeElements();
         this.initializeEventListeners();
@@ -136,6 +138,9 @@ class PracticeApp {
 
     // 渲染題目列表
     renderQuestionList() {
+            // 側邊欄已移除，此函數保留但不執行任何操作
+            if (!this.elements.questionList) return;
+        
         this.elements.questionList.innerHTML = '';
         this.displayedQuestions.forEach((q, index) => {
             const item = document.createElement('button');
@@ -162,6 +167,15 @@ class PracticeApp {
         
         this.currentQuestionIndex = index;
         const question = this.displayedQuestions[index];
+
+        // 在錯題模式中，自動清除舊的錯誤紀錄，避免先看到答案
+        // 但若是剛提交完（skipResetOnLoad=true），則保留紀錄以顯示結果
+        if (this.mistakeReviewMode && !this.skipResetOnLoad) {
+            const record = StorageManager.getRecord(question.id);
+            if (record && !record.isCorrect) {
+                StorageManager.deleteRecord(question.id);
+            }
+        }
         
         this.elements.questionTitle.textContent = `題目 ${question.id}`;
         this.elements.questionText.textContent = question.question;
@@ -175,6 +189,8 @@ class PracticeApp {
         this.renderQuestionList();
         
         this.selectedOption = undefined;
+        // 重置旗標，讓下一次載入可正常清除舊錯題紀錄
+        this.skipResetOnLoad = false;
     }
 
     // 渲染選項
@@ -267,8 +283,15 @@ class PracticeApp {
             StorageManager.clearMistake(question.id);
         }
         
+        // 提交後保留紀錄以顯示結果
+        this.skipResetOnLoad = true;
         this.loadQuestion(this.currentQuestionIndex);
         this.updateProgressStats();
+        
+        // 如果在錯題模式中，更新錯題統計
+        if (this.mistakeReviewMode) {
+            this.updateMistakeStats();
+        }
     }
 
     // 重新作答
@@ -278,6 +301,11 @@ class PracticeApp {
         this.selectedOption = undefined;
         this.loadQuestion(this.currentQuestionIndex);
         this.updateProgressStats();
+        
+        // 如果在錯題模式中，更新錯題統計
+        if (this.mistakeReviewMode) {
+            this.updateMistakeStats();
+        }
     }
 
     // 顯示結果
@@ -336,29 +364,64 @@ class PracticeApp {
         this.mistakeReviewMode = !this.mistakeReviewMode;
         
         if (this.mistakeReviewMode) {
+            // 進入錯題模式：重新抓取當前的錯題
             const mistakes = StorageManager.getMistakes();
-            this.displayedQuestions = this.questions.filter(q => mistakes[q.id]);
+            const mistakeQuestions = this.questions.filter(q => mistakes[q.id]);
             
-            if (this.displayedQuestions.length === 0) {
+            if (mistakeQuestions.length === 0) {
                 alert('目前沒有錯題！');
                 this.mistakeReviewMode = false;
-                this.displayedQuestions = this.questions;
                 return;
             }
             
+            // 創建錯題快照（記錄進入時的錯題ID）
+            this.mistakeSnapshot = mistakeQuestions.map(q => q.id);
+            this.displayedQuestions = mistakeQuestions;
+            
             this.elements.mistakeReviewBtn.classList.add('active');
+            this.elements.mistakeReviewBtn.textContent = '❌離開錯題模式';
             this.elements.mistakeInfo.style.display = 'block';
             this.elements.mistakeCount.textContent = this.displayedQuestions.length;
+            
+            // 更新錯題模式的統計信息
+            this.updateMistakeStats();
+            
+            console.log('進入錯題模式，共', this.displayedQuestions.length, '題');
         } else {
+            // 離開錯題模式：清除快照，回到所有題目
+            this.mistakeSnapshot = null;
             this.displayedQuestions = this.questions;
             this.elements.mistakeReviewBtn.classList.remove('active');
+            this.elements.mistakeReviewBtn.textContent = '❌ 錯題';
             this.elements.mistakeInfo.style.display = 'none';
+            
+            console.log('離開錯題模式');
         }
         
         this.currentQuestionIndex = 0;
         this.renderQuestionList();
         this.populateQuestionSelect();
         this.loadQuestion(0);
+    }
+
+    // 更新錯題模式統計
+    updateMistakeStats() {
+        if (!this.mistakeReviewMode || !this.mistakeSnapshot) return;
+        
+        const mistakeInfoElement = this.elements.mistakeInfo;
+        const totalMistakes = this.mistakeSnapshot.length;
+        
+        // 計算在錯題模式中已經重新答對的題數
+        const correctedCount = this.mistakeSnapshot.filter(id => {
+            const record = StorageManager.getRecord(id);
+            return record && record.isCorrect;
+        }).length;
+        
+        mistakeInfoElement.innerHTML = `
+            <p>錯題復習模式 (共 <strong>${totalMistakes}</strong> 題
+            ${correctedCount > 0 ? ` | 已修正 <strong>${correctedCount}</strong> 題 ✨` : ''})
+            </p>
+        `;
     }
 
     // 更新進度統計

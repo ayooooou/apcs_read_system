@@ -30,20 +30,10 @@
         </header>
 
         <main class="main-content">
-            <!-- Left Sidebar: Question List -->
-            <aside class="sidebar">
-                <div class="sidebar-header">
-                    <h3>題目列表</h3>
-                    <div class="sidebar-buttons">
-                        <button id="mistakeReviewBtn" class="review-btn" title="只顯示答錯的題目">❌ 錯題</button>
-                        <button id="resetBtn" class="reset-btn" title="重置所有進度">🔄</button>
-                    </div>
-                </div>
-                <div class="mistake-info" id="mistakeInfo" style="display:none;">
-                    <p>錯題復習模式 (<span id="mistakeCount">0</span> 題)</p>
-                </div>
-                <div class="question-list" id="questionList"></div>
-            </aside>
+            <!-- Mistake Mode Info -->
+            <div class="mistake-info" id="mistakeInfo" style="display:none;">
+                <p>錯題復習模式 (<span id="mistakeCount">0</span> 題)</p>
+            </div>
 
             <!-- Center: Main Content -->
             <section class="practice-area">
@@ -51,12 +41,16 @@
                 <div class="bottom-nav">
                     <div class="navigation-bar">
                         <button id="prevBtn" class="nav-btn">前一題</button>
-                        <div class="current-question">第 <span id="currentQNum">1</span> / <span id="totalQNum">0</span> 題</div>
+                        <div class="current-question">第 <span id="currentQNum">1</span> / <span id="totalQNum">125</span> 題</div>
                         <div class="question-selector">
                             <label for="questionSelect" class="selector-label"></label>
                             <select id="questionSelect" class="question-select"></select>
                         </div>
                         <button id="nextBtn" class="nav-btn">下一題</button>
+                    </div>
+                    <div class="nav-buttons-group">
+                        <button id="mistakeReviewBtn" class="review-btn" title="只顯示答錯的題目">❌ 錯題</button>
+                        <button id="resetBtn" class="reset-btn" title="重置所有進度">🔄</button>
                     </div>
                 </div>
                 <!-- Question Content -->
