@@ -386,7 +386,7 @@ a:focus-visible {
     flex-wrap: wrap;
     width: 100%;
 }
-}
+
 
 /* Question Card */
 .question-card {
@@ -695,6 +695,13 @@ a:focus-visible {
         gap: 15px;
     }
 
+    /* Stack navigation and utility buttons vertically on mobile */
+    .bottom-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
     .navigation-bar {
         flex-direction: column;
         width: 100%; /* 手機版導覽列滿寬，便於按鈕 100% */
@@ -703,6 +710,35 @@ a:focus-visible {
     .nav-btn {
         flex: 1;
         width: 100%;
+    }
+
+    /* Make mistake/reset group full-width and space items nicely */
+    .nav-buttons-group {
+        width: 100%;
+        justify-content: space-between;
+        padding: 12px;
+        gap: 10px;
+    }
+
+    /* Enlarge tap targets for mistake/reset on mobile */
+    .review-btn,
+    .reset-btn {
+        flex: 1;
+        min-height: 44px;
+        padding: 12px 16px;
+        font-size: 16px;
+        border: 1px solid #e5e7eb;
+        background-color: #ffffff;
+    }
+
+    .review-btn {
+        border-color: rgba(239, 68, 68, 0.35);
+        background-color: rgba(239, 68, 68, 0.06);
+    }
+
+    .review-btn.active {
+        background-color: var(--danger-color);
+        color: #fff;
     }
 
     .question-card {
@@ -732,6 +768,33 @@ a:focus-visible {
 
     .header h1 {
         font-size: 22px;
+    }
+
+    /* Footer 手機版優化 */
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 15px;
+    }
+
+    .footer-left {
+        width: 100%;
+    }
+
+    .footer-left p {
+        font-size: 12px;
+    }
+
+    .footer-right {
+        width: 100%;
+        align-items: flex-start;
+        text-align: left;
+        gap: 6px;
+    }
+
+    .footer-right p {
+        font-size: 12px;
     }
 }
 

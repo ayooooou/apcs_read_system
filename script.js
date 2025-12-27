@@ -46,6 +46,17 @@ const StorageManager = {
         localStorage.setItem('mistakes', JSON.stringify(mistakes));
     },
 
+    // 取得最後一題位置
+    getLastQuestionIndex() {
+        const data = localStorage.getItem('lastQuestionIndex');
+        return data ? parseInt(data) : 0;
+    },
+
+    // 記錄最後一題位置
+    setLastQuestionIndex(index) {
+        localStorage.setItem('lastQuestionIndex', index.toString());
+    },
+
     // 重置所有進度
     resetAll() {
         if (confirm('確定要重置所有練習進度嗎？此操作無法復原。')) {
@@ -121,7 +132,9 @@ class PracticeApp {
         this.elements.total.textContent = this.questions.length;
         this.populateQuestionSelect();
         this.renderQuestionList();
-        this.loadQuestion(0);
+        // 載入上次的題目位置，如果沒有則默認為 0
+        const lastIndex = StorageManager.getLastQuestionIndex();
+        this.loadQuestion(lastIndex);
         this.updateProgressStats();
     }
 
@@ -167,6 +180,11 @@ class PracticeApp {
         
         this.currentQuestionIndex = index;
         const question = this.displayedQuestions[index];
+        
+        // 記錄當前題目的位置（只在非錯題模式時記錄）
+        if (!this.mistakeReviewMode) {
+            StorageManager.setLastQuestionIndex(this.questions.findIndex(q => q.id === question.id));
+        }
 
         // 在錯題模式中，自動清除舊的錯誤紀錄，避免先看到答案
         // 但若是剛提交完（skipResetOnLoad=true），則保留紀錄以顯示結果
