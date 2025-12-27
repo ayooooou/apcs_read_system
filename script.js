@@ -68,6 +68,16 @@ const StorageManager = {
         localStorage.setItem('difficultyFilter', JSON.stringify(filter));
     },
 
+    // 取得主題（light|dark）
+    getTheme() {
+        return localStorage.getItem('theme') || 'light';
+    },
+
+    // 設置主題
+    setTheme(theme) {
+        localStorage.setItem('theme', theme);
+    },
+
     // 重置所有進度
     resetAll() {
         if (confirm('確定要重置所有練習進度嗎？此操作無法復原。')) {
@@ -129,6 +139,8 @@ class PracticeApp {
             difficultyResetBtn: document.getElementById('difficultyResetBtn'),
             difficultyChecks: document.querySelectorAll('.difficulty-check')
         };
+        // 額外元素
+        this.elements.themeToggleBtn = document.getElementById('themeToggleBtn');
     }
 
     // 初始化事件監聽
@@ -153,6 +165,11 @@ class PracticeApp {
         });
         this.elements.difficultyApplyBtn.addEventListener('click', () => this.applyDifficultyFilter());
         this.elements.difficultyResetBtn.addEventListener('click', () => this.resetDifficultyFilter());
+
+        // 主題切換
+        if (this.elements.themeToggleBtn) {
+            this.elements.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
+        }
     }
 
     // 載入初始狀態
@@ -164,6 +181,39 @@ class PracticeApp {
         const lastIndex = StorageManager.getLastQuestionIndex();
         this.loadQuestion(lastIndex);
         this.updateProgressStats();
+
+        // 套用主題
+        const theme = StorageManager.getTheme();
+        this.applyTheme(theme);
+    }
+
+    // 套用主題
+    applyTheme(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            this.updateThemeToggleButton('dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            this.updateThemeToggleButton('light');
+        }
+        StorageManager.setTheme(theme);
+    }
+
+    // 切換主題
+    toggleTheme() {
+        const current = StorageManager.getTheme();
+        const next = current === 'dark' ? 'light' : 'dark';
+        this.applyTheme(next);
+    }
+
+    // 更新主題按鈕文字
+    updateThemeToggleButton(theme) {
+        if (!this.elements.themeToggleBtn) return;
+        const iconSpan = this.elements.themeToggleBtn.querySelector('.iconify');
+        if (iconSpan) {
+            iconSpan.setAttribute('data-icon', theme === 'dark' ? 'tabler:sun' : 'tabler:moon');
+        }
+        this.elements.themeToggleBtn.title = theme === 'dark' ? '切換為亮色模式' : '切換為深色模式';
     }
 
     // 填充題號選單
@@ -427,7 +477,6 @@ class PracticeApp {
             this.updateDifficultyFilteredQuestions();
             
             this.elements.mistakeReviewBtn.classList.add('active');
-            this.elements.mistakeReviewBtn.textContent = '❌離開錯題模式';
             this.elements.mistakeInfo.style.display = 'block';
             this.elements.mistakeCount.textContent = mistakeQuestions.length;
             
@@ -443,7 +492,6 @@ class PracticeApp {
             this.updateDifficultyFilteredQuestions();
             
             this.elements.mistakeReviewBtn.classList.remove('active');
-            this.elements.mistakeReviewBtn.textContent = '❌ 錯題';
             this.elements.mistakeInfo.style.display = 'none';
             
             console.log('離開錯題模式');

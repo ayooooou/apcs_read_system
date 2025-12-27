@@ -6,6 +6,7 @@
     <title>C 程式識讀練習系統</title>
     <link rel="icon" href="data/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -49,9 +50,10 @@
                         <button id="nextBtn" class="nav-btn">下一題</button>
                     </div>
                     <div class="nav-buttons-group">
-                        <button id="difficultyFilterBtn" class="filter-btn" title="篩選難度">🎯 難度</button>
-                        <button id="mistakeReviewBtn" class="review-btn" title="只顯示答錯的題目">❌ 錯題</button>
-                        <button id="resetBtn" class="reset-btn" title="重置所有進度">🔄</button>
+                        <button id="themeToggleBtn" class="theme-btn" title="切換深色模式"><span class="iconify" data-icon="tabler:moon"></span></button>
+                        <button id="difficultyFilterBtn" class="filter-btn" title="篩選難度"><span class="iconify" data-icon="tabler:filter"></span></button>
+                        <button id="mistakeReviewBtn" class="review-btn" title="只顯示答錯的題目"><span class="iconify" data-icon="tabler:circle-x"></span></button>
+                        <button id="resetBtn" class="reset-btn" title="重置所有進度"><span class="iconify" data-icon="tabler:refresh"></span></button>
                     </div>
                 </div>
                 
@@ -127,12 +129,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-left">
-            <p>💡 提示：答題進度會自動保存到本機</p>
-            <p>✨ 如果你喜歡這個系統，請幫我的github按個星星！<a href="https://github.com/ayooooou/apcs_read_system" target="_blank">點我></a>
+            <p><span class="iconify" data-icon="tabler:bulb"></span> 提示：答題進度會自動保存到本機</p>
+            <p><span class="iconify" data-icon="tabler:sparkles"></span> 如果你喜歡這個系統，請幫我的github按個星星！<a href="https://github.com/ayooooou/apcs_read_system" target="_blank">點我></a>
             </p>
         </div>
         <div class="footer-right">
-            <p>題目來源: <a href="https://drive.google.com/file/d/1VXEr7909VMTzNNOJS0XS1kVRkTxfe9zs/view" target="_blank">APCS C 程式識讀 125 題</a> |<a href="https://hackmd.io/@bangyewu/B13lefwMp" target="_blank">吳邦一</a></p>
+            <p>題目來源|<a href="https://drive.google.com/file/d/1VXEr7909VMTzNNOJS0XS1kVRkTxfe9zs/view" target="_blank">APCS C 程式識讀 125 題</a> <a href="https://hackmd.io/@bangyewu/B13lefwMp" target="_blank">吳邦一</a></p>
             <p>系統製作| <a href="https://ayooooou.github.io/" target="_blank">A1u</a></p>
         </div>
     </footer>

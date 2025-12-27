@@ -20,6 +20,20 @@
     --shadow: 0 8px 24px rgba(17, 24, 39, 0.08);
 }
 
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --primary-color: #60a5fa;
+    --success-color: #22c55e;
+    --danger-color: #ef4444;
+    --gray-light: #0f172a; /* panel backgrounds */
+    --gray-medium: #64748b;
+    --gray-dark: #e5e7eb; /* used for text in some places */
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: #334155;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
 body {
     font-family: 'DM Sans', 'Noto Sans TC', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: #fdfdfd;
@@ -28,6 +42,10 @@ body {
     display: flex;
     flex-direction: column;
     letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] body {
+    background: #0b1220;
 }
 
 /* Global anchor styling with a subtle accent underline */
@@ -73,6 +91,10 @@ a:focus-visible {
     color: var(--text-primary);
     padding: 12px 0;
     border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .header {
+    background: var(--gray-light);
 }
 
 .header-content {
@@ -161,17 +183,40 @@ a:focus-visible {
 }
 
 .reset-btn {
-    background: none;
-    border: none;
-    font-size: 18px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 6px;
-    transition: background-color 0.2s;
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 52px;
+}
+
+.reset-btn .iconify {
+    width: 22px;
+    height: 22px;
 }
 
 .reset-btn:hover {
-    background-color: var(--gray-light);
+    background-color: #e8e8e8;
+    border-color: #d0d0d0;
+}
+
+[data-theme="dark"] .reset-btn {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .reset-btn:hover {
+    background-color: #243447;
+    border-color: #475569;
 }
 
 .question-list {
@@ -192,11 +237,21 @@ a:focus-visible {
     border: 1px solid #f5c2c0;
     font-size: 16px;
     cursor: pointer;
-    padding: 8px 14px;
+    padding: 10px 16px;
     border-radius: 10px;
     transition: all 0.2s;
     color: #b3261e;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 52px;
+}
+
+.review-btn .iconify {
+    width: 22px;
+    height: 22px;
 }
 
 .review-btn:hover {
@@ -207,6 +262,17 @@ a:focus-visible {
 .review-btn.active {
     background-color: var(--danger-color);
     color: white;
+}
+
+[data-theme="dark"] .review-btn {
+    background-color: #2d1a1a;
+    border-color: #4d2626;
+    color: #fca5a5;
+}
+
+[data-theme="dark"] .review-btn:hover {
+    background-color: #3d2020;
+    border-color: #6d3636;
 }
 
 .mistake-info {
@@ -316,6 +382,11 @@ a:focus-visible {
     min-width: fit-content;
 }
 
+[data-theme="dark"] .navigation-bar {
+    background: var(--gray-light);
+    box-shadow: none;
+}
+
 .nav-buttons-group {
     display: flex;
     gap: 8px;
@@ -326,6 +397,11 @@ a:focus-visible {
     box-shadow: var(--shadow);
 }
 
+[data-theme="dark"] .nav-buttons-group {
+    background: var(--gray-light);
+    box-shadow: none;
+}
+
 .nav-btn {
     padding: 10px 16px;
     background-color: #eef2ff;
@@ -334,15 +410,27 @@ a:focus-visible {
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s ease;
-    color: #1d2a59;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .nav-btn {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: var(--text-primary);
 }
 
 .nav-btn:hover { background-color: #d7ddff; }
+
+[data-theme="dark"] .nav-btn:hover {
+    background-color: #1e293b;
+    border-color: #60a5fa;
+}
+
 .nav-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
 .current-question {
     font-weight: 700;
-    color: #1d2a59;
+    color: var(--text-primary);
     font-size: 14px;
 }
 
@@ -353,8 +441,14 @@ a:focus-visible {
     background-color: #fff;
     cursor: pointer;
     font-weight: 600;
-    color: #1d2a59;
+    color: var(--text-primary);
     min-width: 140px;
+}
+
+[data-theme="dark"] .question-select {
+    background-color: #0f172a;
+    border-color: var(--border-color);
+    color: var(--text-primary);
 }
 
 .question-select:hover,
@@ -371,9 +465,14 @@ a:focus-visible {
     box-shadow: none;
 }
 
+[data-theme="dark"] .question-selector {
+    background: var(--gray-light);
+    border: 1px solid var(--border-color);
+}
+
 .selector-label {
     font-weight: 700;
-    color: #1d2a59;
+    color: var(--text-primary);
     letter-spacing: 0.02em;
 }
 
@@ -399,6 +498,12 @@ a:focus-visible {
     margin-top: 8px;
 }
 
+[data-theme="dark"] .question-card {
+    background: var(--gray-light);
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+}
+
 .question-header {
     margin-bottom: 28px;
     padding-bottom: 12px;
@@ -407,7 +512,7 @@ a:focus-visible {
 
 .question-header h2 {
     font-size: 18px;
-    color: #1d2a59;
+    color: var(--text-primary);
     margin: 0;
     letter-spacing: 0.05em;
 }
@@ -420,7 +525,7 @@ a:focus-visible {
     font-family: 'Noto Serif TC', 'DM Sans', serif;
     font-size: 28px;
     line-height: 1.6;
-    color: #1b2330;
+    color: var(--text-primary);
     margin: 0;
     letter-spacing: 0.03em;
     white-space: pre-wrap;
@@ -448,7 +553,28 @@ a:focus-visible {
     transition: all 0.2s ease;
 }
 
+[data-theme="dark"] .option {
+    background-color: #0f172a;
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .option.selected {
+    background-color: #172034;
+    border-color: #3b82f6;
+}
+
 .option:hover { background-color: #eef2ff; border-color: #dfe4ff; }
+
+/* Softer hover colors for options (light/dark) */
+.option:hover {
+    background-color: #f1f5f9; /* slate-100 */
+    border-color: #cbd5e1;    /* slate-300 */
+}
+
+[data-theme="dark"] .option:hover {
+    background-color: #131a2c; /* pressed tone, not bright */
+    border-color: #3b82f6;    /* keep focus hue consistent */
+}
 
 .option input[type="radio"] {
     width: 22px;
@@ -466,7 +592,7 @@ a:focus-visible {
     font-size: 22px;
     line-height: 1.5;
     margin: 0;
-    color: #1b2330;
+    color: var(--text-primary);
 }
 
 .option.selected { background-color: #e9edff; border-color: #c7d2fe; }
@@ -520,6 +646,49 @@ a:focus-visible {
     background-color: white;
     border-color: var(--primary-color);
     color: var(--primary-color);
+}
+
+.btn-tertiary {
+    background-color: #f8fafc;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.btn-tertiary:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+/* Dark mode button overrides */
+[data-theme="dark"] .btn-primary {
+    background-color: #1e40af;
+    color: white;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #1e3a8a;
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: #243447;
+    border-color: #475569;
+}
+
+[data-theme="dark"] .btn-tertiary {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .btn-tertiary:hover {
+    background-color: #243447;
+    border-color: #475569;
 }
 
 /* Result Section */
@@ -584,10 +753,20 @@ a:focus-visible {
     align-items: center;
     gap: 10px;
     transition: background-color 0.3s;
+    color: var(--text-primary);
 }
 
 .accordion-btn:hover {
-    background-color: white;
+    background-color: #f1f5f9; /* softer than pure white */
+}
+
+[data-theme="dark"] .accordion-btn {
+    background-color: #0f172a;
+    border-bottom: 2px solid var(--border-color);
+}
+
+[data-theme="dark"] .accordion-btn:hover {
+    background-color: #131a2c;
 }
 
 .accordion-icon {
@@ -602,6 +781,10 @@ a:focus-visible {
 .accordion-content {
     padding: 20px;
     background-color: white;
+}
+
+[data-theme="dark"] .accordion-content {
+    background-color: var(--gray-light);
 }
 
 .accordion-content p {
@@ -644,6 +827,12 @@ a:focus-visible {
     animation: slideDown 0.3s ease-out;
 }
 
+[data-theme="dark"] .modal-content {
+    background-color: var(--gray-light);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+}
+
 @keyframes slideDown {
     from {
         transform: translateY(-50px);
@@ -661,6 +850,11 @@ a:focus-visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+[data-theme="dark"] .modal-header {
+    background-color: var(--gray-light);
+    border-bottom-color: var(--border-color);
 }
 
 .modal-header h3 {
@@ -702,6 +896,11 @@ a:focus-visible {
     justify-content: flex-end;
 }
 
+[data-theme="dark"] .modal-footer {
+    background-color: var(--gray-light);
+    border-top-color: var(--border-color);
+}
+
 /* Difficulty Filter Styles */
 .difficulty-options {
     display: flex;
@@ -736,11 +935,22 @@ a:focus-visible {
 
 .difficulty-checkbox span {
     font-size: 15px;
-    color: #000000;
+    color: var(--text-primary);
 }
 
 .difficulty-checkbox input[type="checkbox"]:checked ~ span {
     font-weight: 600;
+}
+
+/* Dark theme overrides for difficulty filter */
+[data-theme="dark"] .difficulty-checkbox {
+    background-color: #0f172a;
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .difficulty-checkbox:hover {
+    background-color: #131a2c;
+    border-color: #3b82f6;
 }
 
 /* Filter Button Styles */
@@ -749,11 +959,21 @@ a:focus-visible {
     border: 1px solid #c8d8ff;
     font-size: 16px;
     cursor: pointer;
-    padding: 8px 14px;
+    padding: 10px 16px;
     border-radius: 10px;
     transition: all 0.2s;
     color: #0f3d91;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 52px;
+}
+
+.filter-btn .iconify {
+    width: 22px;
+    height: 22px;
 }
 
 .filter-btn:hover {
@@ -765,6 +985,18 @@ a:focus-visible {
     background-color: #5b8def;
     color: #ffffff;
     border-color: #5b8def;
+}
+
+/* Dark theme overrides for filter button */
+[data-theme="dark"] .filter-btn {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .filter-btn:hover {
+    background-color: #243447;
+    border-color: #475569;
 }
 
 /* ==================== Footer ==================== */
@@ -780,6 +1012,48 @@ a:focus-visible {
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
+}
+
+[data-theme="dark"] .footer {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Theme toggle button */
+.theme-btn {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 10px;
+    transition: all 0.2s;
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 52px;
+}
+
+.theme-btn .iconify {
+    width: 22px;
+    height: 18px;
+}
+
+.theme-btn:hover {
+    background-color: #e8e8e8;
+    border-color: #d0d0d0;
+}
+
+[data-theme="dark"] .theme-btn {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+[data-theme="dark"] .theme-btn:hover {
+    background-color: #243447;
+    border-color: #475569;
 }
 
 .footer-left {
@@ -881,14 +1155,29 @@ a:focus-visible {
     /* Enlarge tap targets for utility buttons on mobile */
     .review-btn,
     .reset-btn,
-    .filter-btn {
+    .filter-btn,
+    .theme-btn {
         flex: 1;
         min-height: 44px;
-        padding: 12px 16px;
-        font-size: 16px;
-        border: 1px solid #e5e7eb;
-        background-color: #ffffff;
-        text-align: center;
+    }
+
+    /* Enlarge icons on mobile */
+    .review-btn .iconify,
+    .reset-btn .iconify,
+    .filter-btn .iconify,
+    .theme-btn .iconify {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Dark overrides for mobile buttons to avoid white background */
+    [data-theme="dark"] .review-btn,
+    [data-theme="dark"] .reset-btn,
+    [data-theme="dark"] .filter-btn,
+    [data-theme="dark"] .theme-btn {
+        background-color: #1e293b;
+        border-color: var(--border-color);
+        color: var(--text-primary);
     }
 
     .review-btn {
