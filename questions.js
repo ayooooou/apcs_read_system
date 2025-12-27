@@ -10,7 +10,8 @@ const questions = [
       "程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "整數除法、先乘除後加減"
+    "explanation": "整數除法、先乘除後加減",
+    "difficulty": "易"
   },
   {
     "id": 2,
@@ -23,7 +24,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "括弧先算、先乘除後加減"
+    "explanation": "括弧先算、先乘除後加減",
+    "difficulty": "易"
   },
   {
     "id": 3,
@@ -36,7 +38,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 4,
-    "explanation": "指定運算(=)左方必須為變數"
+    "explanation": "指定運算(=)左方必須為變數",
+    "difficulty": "易"
   },
   {
     "id": 4,
@@ -49,7 +52,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 1,
-    "explanation": "queue基本題；head為彈出的位置，tail-1是尾端"
+    "explanation": "queue基本題；head為彈出的位置，tail-1是尾端",
+    "difficulty": "中"
   },
   {
     "id": 5,
@@ -62,7 +66,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "整數型別截斷；乘除同優先由左至右，整數除法無小數"
+    "explanation": "整數型別截斷；乘除同優先由左至右，整數除法無小數",
+    "difficulty": "易"
   },
   {
     "id": 6,
@@ -75,7 +80,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 4,
-    "explanation": "i=0,2,3,1 => (1-3)%5=-2，q[-2]超界"
+    "explanation": "i=0,2,3,1 => (1-3)%5=-2，q[-2]超界",
+    "difficulty": "中"
   },
   {
     "id": 7,
@@ -88,7 +94,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "依順序執行"
+    "explanation": "依順序執行",
+    "difficulty": "易"
   },
   {
     "id": 8,
@@ -101,7 +108,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "queue：正數壓入，負數彈出抵銷；最後剩(2,1)總和=3"
+    "explanation": "queue：正數壓入，負數彈出抵銷；最後剩(2,1)總和=3",
+    "difficulty": "難"
   },
   {
     "id": 9,
@@ -114,7 +122,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "t是queue，p是head；非'x'壓入，'x'彈出；最後印queue字元"
+    "explanation": "t是queue，p是head；非'x'壓入，'x'彈出；最後印queue字元",
+    "difficulty": "中"
   },
   {
     "id": 10,
@@ -127,7 +136,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "t是stack，p為top+1；非'x'壓入，'x'彈出並印出"
+    "explanation": "t是stack，p為top+1；非'x'壓入，'x'彈出並印出",
+    "difficulty": "中"
   },
   {
     "id": 11,
@@ -140,7 +150,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "stack：正數壓入，負數彈出抵銷；最後剩(3,2)總和=5"
+    "explanation": "stack：正數壓入，負數彈出抵銷；最後剩(3,2)總和=5",
+    "difficulty": "難"
   },
   {
     "id": 12,
@@ -153,7 +164,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "a/2=1，f=1.5；a/4.0=0.75，x=1.25"
+    "explanation": "a/2=1，f=1.5；a/4.0=0.75，x=1.25",
+    "difficulty": "易"
   },
   {
     "id": 13,
@@ -166,7 +178,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "'a'+4='e'；char可當整數，5+2=7"
+    "explanation": "'a'+4='e'；char可當整數，5+2=7",
+    "difficulty": "易"
   },
   {
     "id": 14,
@@ -179,7 +192,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "else配對到第二個if；此例什麼都沒執行，c=0"
+    "explanation": "else配對到第二個if；此例什麼都沒執行，c=0",
+    "difficulty": "易"
   },
   {
     "id": 15,
@@ -192,7 +206,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "三元運算；a為true，b=7；c=2"
+    "explanation": "三元運算；a為true，b=7；c=2",
+    "difficulty": "易"
   },
   {
     "id": 16,
@@ -205,7 +220,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "非0為true，第一個if成立；c=1後第二個if也成立，c=2"
+    "explanation": "非0為true，第一個if成立；c=1後第二個if也成立，c=2",
+    "difficulty": "易"
   },
   {
     "id": 17,
@@ -218,7 +234,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "找到b第一個空白，將下一個空白之前的字抄到a尾端"
+    "explanation": "找到b第一個空白，將下一個空白之前的字抄到a尾端",
+    "difficulty": "中"
   },
   {
     "id": 18,
@@ -231,7 +248,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "將字串中的數字取出轉整數；0x只是幌子"
+    "explanation": "將字串中的數字取出轉整數；0x只是幌子",
+    "difficulty": "中"
   },
   {
     "id": 19,
@@ -244,7 +262,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "index從0開始；'e'-'a'=4；'d'+4='h'"
+    "explanation": "index從0開始；'e'-'a'=4；'d'+4='h'",
+    "difficulty": "易"
   },
   {
     "id": 20,
@@ -257,7 +276,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "將a反轉放入b"
+    "explanation": "將a反轉放入b",
+    "difficulty": "中"
   },
   {
     "id": 21,
@@ -270,7 +290,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "迴圈重複a>b時累加b到c，直到a<=b；c=2+2+2=6"
+    "explanation": "迴圈重複a>b時累加b到c，直到a<=b；c=2+2+2=6",
+    "difficulty": "易"
   },
   {
     "id": 22,
@@ -283,7 +304,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "p指向y；*p=30改變y的值，x不變"
+    "explanation": "p指向y；*p=30改變y的值，x不變",
+    "difficulty": "易"
   },
   {
     "id": 23,
@@ -296,7 +318,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "a+2指向a[2]=3；*(p+1)=a[3]=4；*(p-1)=a[1]=2"
+    "explanation": "a+2指向a[2]=3；*(p+1)=a[3]=4；*(p-1)=a[1]=2",
+    "difficulty": "中"
   },
   {
     "id": 24,
@@ -309,7 +332,8 @@ const questions = [
       "程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "q指向p；**q改變p指向的a，結果a=10"
+    "explanation": "q指向p；**q改變p指向的a，結果a=10",
+    "difficulty": "易"
   },
   {
     "id": 25,
@@ -322,7 +346,8 @@ const questions = [
       "程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "字串常數不可修改；嘗試修改會造成記憶體問題"
+    "explanation": "字串常數不可修改；嘗試修改會造成記憶體問題",
+    "difficulty": "易"
   },
   {
     "id": 26,
@@ -335,7 +360,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "p=a[0]指向第一列；p+5=a[0]+5指向a[1][1]=6；p+8指向a[2][0]=9"
+    "explanation": "p=a[0]指向第一列；p+5=a[0]+5指向a[1][1]=6；p+8指向a[2][0]=9",
+    "difficulty": "易"
   },
   {
     "id": 27,
@@ -348,7 +374,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "q-p=3（列寬）；q+2指向a[1][2]=6"
+    "explanation": "q-p=3（列寬）；q+2指向a[1][2]=6",
+    "difficulty": "中"
   },
   {
     "id": 28,
@@ -361,7 +388,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 0,
-    "explanation": "結構指標用->存取成員"
+    "explanation": "結構指標用->存取成員",
+    "difficulty": "易"
   },
   {
     "id": 29,
@@ -374,7 +402,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "交換指標；p現在指向b，q指向a"
+    "explanation": "交換指標；p現在指向b，q指向a",
+    "difficulty": "易"
   },
   {
     "id": 30,
@@ -387,7 +416,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "強制轉型截斷小數部分；(int)2.3=2"
+    "explanation": "強制轉型截斷小數部分；(int)2.3=2",
+    "difficulty": "易"
   },
   {
     "id": 31,
@@ -400,7 +430,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "三元運算；5>2成立，a=5+2=7"
+    "explanation": "三元運算；5>2成立，a=5+2=7",
+    "difficulty": "易"
   },
   {
     "id": 32,
@@ -413,7 +444,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "a=0,2,4,6,8；總和=20"
+    "explanation": "a=0,2,4,6,8；總和=20",
+    "difficulty": "易"
   },
   {
     "id": 33,
@@ -426,7 +458,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "i++是後增加；列印後再加1"
+    "explanation": "i++是後增加；列印後再加1",
+    "difficulty": "易"
   },
   {
     "id": 34,
@@ -439,7 +472,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "strlen計算字元數，不含\\\\0"
+    "explanation": "strlen計算字元數，不含\\\\0",
+    "difficulty": "中"
   },
   {
     "id": 35,
@@ -452,7 +486,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "整數除法和餘數；10/3=3，10%3=1"
+    "explanation": "整數除法和餘數；10/3=3，10%3=1",
+    "difficulty": "易"
   },
   {
     "id": 36,
@@ -465,7 +500,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "x++後增加；條件判斷時x=5，不大於5"
+    "explanation": "x++後增加；條件判斷時x=5，不大於5",
+    "difficulty": "易"
   },
   {
     "id": 37,
@@ -478,7 +514,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "a乘以2三次；2*2*2*2=16"
+    "explanation": "a乘以2三次；2*2*2*2=16",
+    "difficulty": "中"
   },
   {
     "id": 38,
@@ -491,7 +528,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "7%3=1；符合case 1"
+    "explanation": "7%3=1；符合case 1",
+    "difficulty": "中"
   },
   {
     "id": 39,
@@ -504,7 +542,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "偶數累加到a(2+4=6)；奇數累加到b(1+3+5=9)"
+    "explanation": "偶數累加到a(2+4=6)；奇數累加到b(1+3+5=9)",
+    "difficulty": "中"
   },
   {
     "id": 40,
@@ -517,7 +556,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "'A'=65；c+32=97，即'a'；%c列印字元形式"
+    "explanation": "'A'=65；c+32=97，即'a'；%c列印字元形式",
+    "difficulty": "中"
   },
   {
     "id": 41,
@@ -530,7 +570,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "5>3且5<10成立；b=1"
+    "explanation": "5>3且5<10成立；b=1",
+    "difficulty": "中"
   },
   {
     "id": 42,
@@ -543,7 +584,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "累加到a[i]=4為止；1+2+3=6"
+    "explanation": "累加到a[i]=4為止；1+2+3=6",
+    "difficulty": "中"
   },
   {
     "id": 43,
@@ -556,7 +598,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "巢狀迴圈；外圈5次，內圈3次，共5*3=15"
+    "explanation": "巢狀迴圈；外圈5次，內圈3次，共5*3=15",
+    "difficulty": "難"
   },
   {
     "id": 44,
@@ -569,7 +612,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "累加1-10中不被3整除的數；1+2+4+5+7+8+10=37"
+    "explanation": "累加1-10中不被3整除的數；1+2+4+5+7+8+10=37",
+    "difficulty": "難"
   },
   {
     "id": 45,
@@ -582,7 +626,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "費波那契數列；1,1,2,3,5,8"
+    "explanation": "費波那契數列；1,1,2,3,5,8",
+    "difficulty": "中"
   },
   {
     "id": 46,
@@ -595,7 +640,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "++x先增加後回傳；x和y都是6"
+    "explanation": "++x先增加後回傳；x和y都是6",
+    "difficulty": "中"
   },
   {
     "id": 47,
@@ -608,7 +654,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "尋找最大值；陣列最大值為5"
+    "explanation": "尋找最大值；陣列最大值為5",
+    "difficulty": "中"
   },
   {
     "id": 48,
@@ -621,7 +668,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "將數字各位相加；1+5=6"
+    "explanation": "將數字各位相加；1+5=6",
+    "difficulty": "中"
   },
   {
     "id": 49,
@@ -634,7 +682,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "尋找最小質因數；100的最小質因數是2"
+    "explanation": "尋找最小質因數；100的最小質因數是2",
+    "difficulty": "中"
   },
   {
     "id": 50,
@@ -647,7 +696,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "使用暫存變數交換兩個整數"
+    "explanation": "使用暫存變數交換兩個整數",
+    "difficulty": "易"
   },
   {
     "id": 51,
@@ -660,7 +710,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "函數呼叫；sum(3,4)=7，sum(7,2)=9"
+    "explanation": "函數呼叫；sum(3,4)=7，sum(7,2)=9",
+    "difficulty": "中"
   },
   {
     "id": 52,
@@ -673,7 +724,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "遞迴計算階乘；5!=120"
+    "explanation": "遞迴計算階乘；5!=120",
+    "difficulty": "中"
   },
   {
     "id": 53,
@@ -686,7 +738,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "指標參數；函數內交換影響原值"
+    "explanation": "指標參數；函數內交換影響原值",
+    "difficulty": "中"
   },
   {
     "id": 54,
@@ -699,7 +752,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "計數陣列中特定元素出現次數"
+    "explanation": "計數陣列中特定元素出現次數",
+    "difficulty": "難"
   },
   {
     "id": 55,
@@ -712,7 +766,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "列印到空白符為止"
+    "explanation": "列印到空白符為止",
+    "difficulty": "中"
   },
   {
     "id": 56,
@@ -725,7 +780,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "位元AND運算；101&110=100=4"
+    "explanation": "位元AND運算；101&110=100=4",
+    "difficulty": "中"
   },
   {
     "id": 57,
@@ -738,7 +794,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "位元OR運算；101|110=111=7"
+    "explanation": "位元OR運算；101|110=111=7",
+    "difficulty": "中"
   },
   {
     "id": 58,
@@ -751,7 +808,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "左移乘2，右移除2；5<<1=10，5>>1=2"
+    "explanation": "左移乘2，右移除2；5<<1=10，5>>1=2",
+    "difficulty": "難"
   },
   {
     "id": 59,
@@ -764,7 +822,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "對角線元素和；1+5+9=15"
+    "explanation": "對角線元素和；1+5+9=15",
+    "difficulty": "難"
   },
   {
     "id": 60,
@@ -777,7 +836,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 2,
-    "explanation": "C語言沒有參考型別，這是C++的特性"
+    "explanation": "C語言沒有參考型別，這是C++的特性",
+    "difficulty": "難"
   },
   {
     "id": 61,
@@ -790,7 +850,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "列舉型別；GREEN=1"
+    "explanation": "列舉型別；GREEN=1",
+    "difficulty": "中"
   },
   {
     "id": 62,
@@ -803,7 +864,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 0,
-    "explanation": "結構體初始化"
+    "explanation": "結構體初始化",
+    "difficulty": "中"
   },
   {
     "id": 63,
@@ -816,7 +878,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "指標大小通常8位元組（64位元系統）"
+    "explanation": "指標大小通常8位元組（64位元系統）",
+    "difficulty": "中"
   },
   {
     "id": 64,
@@ -829,7 +892,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "a=5+0+1+2=8，錯誤，應該是a=5，5+0=5，5+1=6，6+2=8，答案是8，第二個選項應該不對"
+    "explanation": "a=5+0+1+2=8，錯誤，應該是a=5，5+0=5，5+1=6，6+2=8，答案是8，第二個選項應該不對",
+    "difficulty": "易"
   },
   {
     "id": 65,
@@ -842,7 +906,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "費波那契；0,1,1,2,3,5,8"
+    "explanation": "費波那契；0,1,1,2,3,5,8",
+    "difficulty": "中"
   },
   {
     "id": 66,
@@ -855,7 +920,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 1,
-    "explanation": "陣列比較的是記憶體位址，不是內容"
+    "explanation": "陣列比較的是記憶體位址，不是內容",
+    "difficulty": "中"
   },
   {
     "id": 67,
@@ -868,7 +934,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "do-while至少執行一次"
+    "explanation": "do-while至少執行一次",
+    "difficulty": "中"
   },
   {
     "id": 68,
@@ -881,7 +948,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "break跳出迴圈時a=50"
+    "explanation": "break跳出迴圈時a=50",
+    "difficulty": "中"
   },
   {
     "id": 69,
@@ -894,7 +962,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "continue跳過i=3；1+2+4+5=12"
+    "explanation": "continue跳過i=3；1+2+4+5=12",
+    "difficulty": "中"
   },
   {
     "id": 70,
@@ -907,7 +976,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "複合賦值；a=3*2=6，b=5+6=11"
+    "explanation": "複合賦值；a=3*2=6，b=5+6=11",
+    "difficulty": "難"
   },
   {
     "id": 71,
@@ -920,7 +990,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 0,
-    "explanation": "字元'9'的ASCII減去'0'的ASCII等於9"
+    "explanation": "字元'9'的ASCII減去'0'的ASCII等於9",
+    "difficulty": "中"
   },
   {
     "id": 72,
@@ -933,7 +1004,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "p指向arr[2]=30"
+    "explanation": "p指向arr[2]=30",
+    "difficulty": "中"
   },
   {
     "id": 73,
@@ -946,7 +1018,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "指標大小比較取決於記憶體位址順序"
+    "explanation": "指標大小比較取決於記憶體位址順序",
+    "difficulty": "難"
   },
   {
     "id": 74,
@@ -959,7 +1032,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "強制轉型截斷小數"
+    "explanation": "強制轉型截斷小數",
+    "difficulty": "中"
   },
   {
     "id": 75,
@@ -972,7 +1046,9 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "先乘除後加減；5-(3*2)=5-6=-1錯誤，應該是5-(3*2)=-1"  },
+    "explanation": "先乘除後加減；5-(3*2)=5-6=-1錯誤，應該是5-(3*2)=-1",
+    "difficulty": "中"
+  },
   {
     "id": 76,
     "question": "int n=123;\nint sum=0;\nwhile (n>0) {\n  sum+=n%10;\n  n/=10;\n}\nprintf(\"%d\",sum);\n輸出為何？",
@@ -984,7 +1060,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "各位數字相加；1+2+3=6"
+    "explanation": "各位數字相加；1+2+3=6",
+    "difficulty": "中"
   },
   {
     "id": 77,
@@ -997,7 +1074,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "計算2-20間的質數；8個"
+    "explanation": "計算2-20間的質數；8個",
+    "difficulty": "難"
   },
   {
     "id": 78,
@@ -1010,7 +1088,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "0+1+4+9+16+25+36+49+64+81=285"
+    "explanation": "0+1+4+9+16+25+36+49+64+81=285",
+    "difficulty": "中"
   },
   {
     "id": 79,
@@ -1023,7 +1102,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "計算字串長度"
+    "explanation": "計算字串長度",
+    "difficulty": "中"
   },
   {
     "id": 80,
@@ -1036,7 +1116,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 3,
-    "explanation": "費波那契；1,1,2,3,5,8"
+    "explanation": "費波那契；1,1,2,3,5,8",
+    "difficulty": "難"
   },
   {
     "id": 81,
@@ -1049,7 +1130,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "陣列指標存取相等"
+    "explanation": "陣列指標存取相等",
+    "difficulty": "難"
   },
   {
     "id": 82,
@@ -1062,7 +1144,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "除法；10/3=3餘1"
+    "explanation": "除法；10/3=3餘1",
+    "difficulty": "中"
   },
   {
     "id": 83,
@@ -1075,7 +1158,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "陣列傳址；函數內的修改影響原陣列"
+    "explanation": "陣列傳址；函數內的修改影響原陣列",
+    "difficulty": "難"
   },
   {
     "id": 84,
@@ -1088,7 +1172,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 0,
-    "explanation": "二級指標解取"
+    "explanation": "二級指標解取",
+    "difficulty": "中"
   },
   {
     "id": 85,
@@ -1101,7 +1186,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "費波那契迭代"
+    "explanation": "費波那契迭代",
+    "difficulty": "中"
   },
   {
     "id": 86,
@@ -1114,7 +1200,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "char溢位；250超出有號char範圍"
+    "explanation": "char溢位；250超出有號char範圍",
+    "difficulty": "中"
   },
   {
     "id": 87,
@@ -1127,7 +1214,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "迴圈：i=1,2,4,8,16,32,64；n=7"
+    "explanation": "迴圈：i=1,2,4,8,16,32,64；n=7",
+    "difficulty": "易"
   },
   {
     "id": 88,
@@ -1140,7 +1228,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "巢狀三元運算；7>5且7<10，b=1"
+    "explanation": "巢狀三元運算；7>5且7<10，b=1",
+    "difficulty": "中"
   },
   {
     "id": 89,
@@ -1153,7 +1242,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "計數數字字元；3個"
+    "explanation": "計數數字字元；3個",
+    "difficulty": "中"
   },
   {
     "id": 90,
@@ -1166,7 +1256,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "指標差值為元素個數"
+    "explanation": "指標差值為元素個數",
+    "difficulty": "中"
   },
   {
     "id": 91,
@@ -1179,7 +1270,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "max(10,5)=10；max(10,20)=20"
+    "explanation": "max(10,5)=10；max(10,20)=20",
+    "difficulty": "難"
   },
   {
     "id": 92,
@@ -1192,7 +1284,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "2*2*2*2*2*2=64，錯誤，應該是2乘以2五次=2*32=64，不對"
+    "explanation": "2*2*2*2*2*2=64，錯誤，應該是2乘以2五次=2*32=64，不對",
+    "difficulty": "難"
   },
   {
     "id": 93,
@@ -1205,7 +1298,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "尋找最大值及其索引"
+    "explanation": "尋找最大值及其索引",
+    "difficulty": "中"
   },
   {
     "id": 94,
@@ -1218,7 +1312,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "8/3=2（整數），2*3=6"
+    "explanation": "8/3=2（整數），2*3=6",
+    "difficulty": "中"
   },
   {
     "id": 95,
@@ -1231,7 +1326,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "迴圈後i=5"
+    "explanation": "迴圈後i=5",
+    "difficulty": "難"
   },
   {
     "id": 96,
@@ -1244,7 +1340,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "計算10!=3628800"
+    "explanation": "計算10!=3628800",
+    "difficulty": "難"
   },
   {
     "id": 97,
@@ -1257,7 +1354,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "0xFF&0x0F=0x0F=15"
+    "explanation": "0xFF&0x0F=0x0F=15",
+    "difficulty": "難"
   },
   {
     "id": 98,
@@ -1270,7 +1368,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "計算絕對差；10-5=5"
+    "explanation": "計算絕對差；10-5=5",
+    "difficulty": "難"
   },
   {
     "id": 99,
@@ -1283,7 +1382,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "sizeof測量陣列大小，非字串長度"
+    "explanation": "sizeof測量陣列大小，非字串長度",
+    "difficulty": "中"
   },
   {
     "id": 100,
@@ -1296,7 +1396,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "偶數總和；2+4+6+8+10=30"
+    "explanation": "偶數總和；2+4+6+8+10=30",
+    "difficulty": "易"
   },
   {
     "id": 101,
@@ -1309,7 +1410,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "歐幾里得演算法求最大公因數；gcd(20,8)=4"
+    "explanation": "歐幾里得演算法求最大公因數；gcd(20,8)=4",
+    "difficulty": "中"
   },
   {
     "id": 102,
@@ -1322,7 +1424,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "反對角線和；4+7+10+13=34"
+    "explanation": "反對角線和；4+7+10+13=34",
+    "difficulty": "中"
   },
   {
     "id": 103,
@@ -1335,7 +1438,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "計算數字位數"
+    "explanation": "計算數字位數",
+    "difficulty": "難"
   },
   {
     "id": 104,
@@ -1348,7 +1452,8 @@ const questions = [
       "以上皆非"
     ],
     "correctAnswer": 1,
-    "explanation": "switch配對case 7"
+    "explanation": "switch配對case 7",
+    "difficulty": "難"
   },
   {
     "id": 105,
@@ -1361,7 +1466,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "計數元音；a,u,a=3"
+    "explanation": "計數元音；a,u,a=3",
+    "difficulty": "難"
   },
   {
     "id": 106,
@@ -1374,7 +1480,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "121是回文數"
+    "explanation": "121是回文數",
+    "difficulty": "難"
   },
   {
     "id": 107,
@@ -1387,7 +1494,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "交換首尾元素"
+    "explanation": "交換首尾元素",
+    "difficulty": "中"
   },
   {
     "id": 108,
@@ -1400,7 +1508,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "else-if邏輯；a>0且b<5，b=6"
+    "explanation": "else-if邏輯；a>0且b<5，b=6",
+    "difficulty": "中"
   },
   {
     "id": 109,
@@ -1413,7 +1522,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "三元運算求最大值"
+    "explanation": "三元運算求最大值",
+    "difficulty": "中"
   },
   {
     "id": 110,
@@ -1426,7 +1536,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "計數元素出現次數"
+    "explanation": "計數元素出現次數",
+    "difficulty": "中"
   },
   {
     "id": 111,
@@ -1439,7 +1550,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "暴力法求最大公因數；gcd(5,12)=1"
+    "explanation": "暴力法求最大公因數；gcd(5,12)=1",
+    "difficulty": "易"
   },
   {
     "id": 112,
@@ -1452,7 +1564,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "計數數字；1,2,3=3"
+    "explanation": "計數數字；1,2,3=3",
+    "difficulty": "難"
   },
   {
     "id": 113,
@@ -1465,7 +1578,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "計算2的4次方=16"
+    "explanation": "計算2的4次方=16",
+    "difficulty": "中"
   },
   {
     "id": 114,
@@ -1478,7 +1592,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "迴圈：100-30=70, 70-30=40, 40-30=10, 停止前一次"
+    "explanation": "迴圈：100-30=70, 70-30=40, 40-30=10, 停止前一次",
+    "difficulty": "難"
   },
   {
     "id": 115,
@@ -1491,7 +1606,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "矩陣跡（對角線和）；1+5+9=15"
+    "explanation": "矩陣跡（對角線和）；1+5+9=15",
+    "difficulty": "易"
   },
   {
     "id": 116,
@@ -1504,7 +1620,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "倒序加總；5+4+3+2+1=15"
+    "explanation": "倒序加總；5+4+3+2+1=15",
+    "difficulty": "難"
   },
   {
     "id": 117,
@@ -1517,7 +1634,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "巢狀迴圈；1+2+3+4+5=15"
+    "explanation": "巢狀迴圈；1+2+3+4+5=15",
+    "difficulty": "中"
   },
   {
     "id": 118,
@@ -1530,7 +1648,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "Collatz猜想計算步數"
+    "explanation": "Collatz猜想計算步數",
+    "difficulty": "中"
   },
   {
     "id": 119,
@@ -1543,7 +1662,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "氣泡排序；排序後為10,20,30,40,50，中位數=30"
+    "explanation": "氣泡排序；排序後為10,20,30,40,50，中位數=30",
+    "difficulty": "難"
   },
   {
     "id": 120,
@@ -1556,7 +1676,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "5的倍數總和；5+10+...+100=1050"
+    "explanation": "5的倍數總和；5+10+...+100=1050",
+    "difficulty": "易"
   },
   {
     "id": 121,
@@ -1569,7 +1690,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 0,
-    "explanation": "整數商和餘數；10/3=3，10%3=1"
+    "explanation": "整數商和餘數；10/3=3，10%3=1",
+    "difficulty": "難"
   },
   {
     "id": 122,
@@ -1582,7 +1704,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "指標參數傳遞；呼叫兩次後a=7"
+    "explanation": "指標參數傳遞；呼叫兩次後a=7",
+    "difficulty": "易"
   },
   {
     "id": 123,
@@ -1595,7 +1718,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "巢狀三元運算求最大值"
+    "explanation": "巢狀三元運算求最大值",
+    "difficulty": "中"
   },
   {
     "id": 124,
@@ -1608,7 +1732,8 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 2,
-    "explanation": "25+36+49+64+81=255，錯誤應該是125"
+    "explanation": "25+36+49+64+81=255，錯誤應該是125",
+    "difficulty": "難"
   },
   {
     "id": 125,
@@ -1621,6 +1746,7 @@ const questions = [
       "以上皆非或程式錯誤"
     ],
     "correctAnswer": 1,
-    "explanation": "計算2-50間的質數個數；15個"
+    "explanation": "計算2-50間的質數個數；15個",
+    "difficulty": "中"
   }
-]
+];

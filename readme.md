@@ -5,5 +5,7 @@
 - 查看解答/詳解
 - 記錄錯題
 - 錯題複習
+- 記錄最後答題題目
+- 難度選擇器
 ## 相關連結
  <p><a href="https://drive.google.com/file/d/1VXEr7909VMTzNNOJS0XS1kVRkTxfe9zs/view" target="_blank">APCS C 程式識讀 125 題｜吳邦一</a> 

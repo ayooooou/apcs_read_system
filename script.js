@@ -57,6 +57,17 @@ const StorageManager = {
         localStorage.setItem('lastQuestionIndex', index.toString());
     },
 
+    // 取得難度篩選
+    getDifficultyFilter() {
+        const data = localStorage.getItem('difficultyFilter');
+        return data ? JSON.parse(data) : { '易': true, '中': true, '難': true };
+    },
+
+    // 設置難度篩選
+    setDifficultyFilter(filter) {
+        localStorage.setItem('difficultyFilter', JSON.stringify(filter));
+    },
+
     // 重置所有進度
     resetAll() {
         if (confirm('確定要重置所有練習進度嗎？此操作無法復原。')) {
@@ -110,7 +121,13 @@ class PracticeApp {
             correctRate: document.getElementById('correctRate'),
             mistakeReviewBtn: document.getElementById('mistakeReviewBtn'),
             mistakeInfo: document.getElementById('mistakeInfo'),
-            mistakeCount: document.getElementById('mistakeCount')
+            mistakeCount: document.getElementById('mistakeCount'),
+            difficultyFilterBtn: document.getElementById('difficultyFilterBtn'),
+            difficultyModal: document.getElementById('difficultyModal'),
+            difficultyModalClose: document.getElementById('difficultyModalClose'),
+            difficultyApplyBtn: document.getElementById('difficultyApplyBtn'),
+            difficultyResetBtn: document.getElementById('difficultyResetBtn'),
+            difficultyChecks: document.querySelectorAll('.difficulty-check')
         };
     }
 
@@ -125,6 +142,17 @@ class PracticeApp {
         this.elements.questionSelect.addEventListener('change', (e) => this.goToQuestion(parseInt(e.target.value)));
         this.elements.resetBtn.addEventListener('click', () => StorageManager.resetAll());
         this.elements.mistakeReviewBtn.addEventListener('click', () => this.toggleMistakeReview());
+        
+        // 難度篩選事件
+        this.elements.difficultyFilterBtn.addEventListener('click', () => this.openDifficultyModal());
+        this.elements.difficultyModalClose.addEventListener('click', () => this.closeDifficultyModal());
+        this.elements.difficultyModal.addEventListener('click', (e) => {
+            if (e.target === this.elements.difficultyModal) {
+                this.closeDifficultyModal();
+            }
+        });
+        this.elements.difficultyApplyBtn.addEventListener('click', () => this.applyDifficultyFilter());
+        this.elements.difficultyResetBtn.addEventListener('click', () => this.resetDifficultyFilter());
     }
 
     // 載入初始狀態
@@ -394,21 +422,26 @@ class PracticeApp {
             
             // 創建錯題快照（記錄進入時的錯題ID）
             this.mistakeSnapshot = mistakeQuestions.map(q => q.id);
-            this.displayedQuestions = mistakeQuestions;
+            
+            // 應用難度篩選
+            this.updateDifficultyFilteredQuestions();
             
             this.elements.mistakeReviewBtn.classList.add('active');
             this.elements.mistakeReviewBtn.textContent = '❌離開錯題模式';
             this.elements.mistakeInfo.style.display = 'block';
-            this.elements.mistakeCount.textContent = this.displayedQuestions.length;
+            this.elements.mistakeCount.textContent = mistakeQuestions.length;
             
             // 更新錯題模式的統計信息
             this.updateMistakeStats();
             
-            console.log('進入錯題模式，共', this.displayedQuestions.length, '題');
+            console.log('進入錯題模式，共', mistakeQuestions.length, '題');
         } else {
             // 離開錯題模式：清除快照，回到所有題目
             this.mistakeSnapshot = null;
-            this.displayedQuestions = this.questions;
+            
+            // 應用難度篩選
+            this.updateDifficultyFilteredQuestions();
+            
             this.elements.mistakeReviewBtn.classList.remove('active');
             this.elements.mistakeReviewBtn.textContent = '❌ 錯題';
             this.elements.mistakeInfo.style.display = 'none';
@@ -454,9 +487,102 @@ class PracticeApp {
         const correctRate = completedCount > 0 ? Math.round((correctCount / completedCount) * 100) : 0;
         this.elements.correctRate.textContent = correctRate;
     }
+
+    // 打開難度篩選modal
+    openDifficultyModal() {
+        // 從localStorage讀取當前的篩選設置
+        const filter = StorageManager.getDifficultyFilter();
+        
+        // 更新checkbox的狀態
+        this.elements.difficultyChecks.forEach(check => {
+            check.checked = filter[check.value] !== false;
+        });
+        
+        this.elements.difficultyModal.style.display = 'block';
+    }
+
+    // 關閉難度篩選modal
+    closeDifficultyModal() {
+        this.elements.difficultyModal.style.display = 'none';
+    }
+
+    // 應用難度篩選
+    applyDifficultyFilter() {
+        const filter = {};
+        this.elements.difficultyChecks.forEach(check => {
+            filter[check.value] = check.checked;
+        });
+        
+        // 保存篩選設置
+        StorageManager.setDifficultyFilter(filter);
+        
+        // 更新顯示的題目
+        this.updateDifficultyFilteredQuestions();
+        
+        // 關閉modal
+        this.closeDifficultyModal();
+        
+        // 更新按鈕狀態
+        this.updateDifficultyButtonState();
+    }
+
+    // 重置難度篩選為全選
+    resetDifficultyFilter() {
+        const allChecked = { '易': true, '中': true, '難': true };
+        StorageManager.setDifficultyFilter(allChecked);
+        
+        // 更新checkbox
+        this.elements.difficultyChecks.forEach(check => {
+            check.checked = true;
+        });
+    }
+
+    // 根據難度篩選更新顯示的題目
+    updateDifficultyFilteredQuestions() {
+        const filter = StorageManager.getDifficultyFilter();
+        
+        // 如果在錯題模式，先過濾錯題
+        const basedQuestions = this.mistakeReviewMode ? 
+            this.questions.filter(q => this.mistakeSnapshot.includes(q.id)) : 
+            this.questions;
+        
+        // 再根據難度篩選
+        this.displayedQuestions = basedQuestions.filter(q => {
+            return filter[q.difficulty] !== false;
+        });
+        
+        if (this.displayedQuestions.length === 0) {
+            alert('沒有符合篩選條件的題目');
+            // 重置篩選
+            StorageManager.setDifficultyFilter({ '易': true, '中': true, '難': true });
+            this.displayedQuestions = basedQuestions;
+            // 更新難度按鈕狀態
+            this.updateDifficultyButtonState();
+        }
+        
+        // 更新UI
+        this.currentQuestionIndex = 0;
+        this.populateQuestionSelect();
+        this.renderQuestionList();
+        this.loadQuestion(0);
+    }
+
+    // 更新難度篩選按鈕狀態
+    updateDifficultyButtonState() {
+        const filter = StorageManager.getDifficultyFilter();
+        const isAllSelected = Object.values(filter).every(v => v === true);
+        
+        if (isAllSelected) {
+            this.elements.difficultyFilterBtn.classList.remove('active');
+        } else {
+            this.elements.difficultyFilterBtn.classList.add('active');
+        }
+    }
 }
 
 // ==================== 初始化應用程式 ====================
 document.addEventListener('DOMContentLoaded', () => {
-    new PracticeApp(questions);
+    const app = new PracticeApp(questions);
+    // 初始化難度篩選按鈕狀態
+    app.updateDifficultyButtonState();
 });
