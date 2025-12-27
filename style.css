@@ -576,6 +576,16 @@ a:focus-visible {
     border-color: #3b82f6;    /* keep focus hue consistent */
 }
 
+[data-theme="dark"] .option.correct {
+    background-color: #064e3b;
+    border-color: #10b981;
+}
+
+[data-theme="dark"] .option.incorrect {
+    background-color: #7f1d1d;
+    border-color: #f87171;
+}
+
 .option input[type="radio"] {
     width: 22px;
     height: 22px;
