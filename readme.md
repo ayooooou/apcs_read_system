@@ -8,5 +8,9 @@
 - 記錄關閉前答題題目
 - 記錄最後設定
 - 難度選擇器
+
+## 記錄
+<p><img src="data/readme_photo/threads.png" width="500" title="提示文字"> </p>
+
 ## 相關連結
  <p><a href="https://drive.google.com/file/d/1VXEr7909VMTzNNOJS0XS1kVRkTxfe9zs/view" target="_blank">APCS C 程式識讀 125 題｜吳邦一</a> 
